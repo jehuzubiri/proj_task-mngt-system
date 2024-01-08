@@ -6,7 +6,7 @@ import { IResolveParams, LoginSocialGoogle } from "reactjs-social-login";
 
 const LoginGoogle: React.FC = () => {
   //states
-  const REDIRECT_URI = "http://localhost:3000/account/login";
+  // const REDIRECT_URI = "http://localhost:3000/account/login";
 
   //functions
   const onLoginStart = useCallback(() => {
@@ -20,7 +20,7 @@ const LoginGoogle: React.FC = () => {
       <LoginSocialGoogle
         client_id="7241488333-6ukh6rn7ri7r9irkvvqda74bnovk83oi.apps.googleusercontent.com"
         onLoginStart={onLoginStart}
-        redirect_uri={REDIRECT_URI}
+        // redirect_uri={REDIRECT_URI}
         onResolve={({ provider, data }: IResolveParams) => {
           console.log(data);
         }}
