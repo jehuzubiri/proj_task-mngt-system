@@ -4,8 +4,8 @@ import React from "react";
 import myImg from "../../../img/undraw-coffee.svg";
 
 //PLUGINS
-import LoginGoogle from "./LoginGoogle";
 import { Button, Form, Input } from "antd";
+import LoginGoogle from "./LoginGoogle";
 
 const Login: React.FC<{
   setActiveTab: React.Dispatch<React.SetStateAction<string>>;
@@ -29,7 +29,7 @@ const Login: React.FC<{
         <img src={myImg} alt="" />
         <p>Task Management System by Jehu</p>
       </div>
-      <h3>Login</h3>
+      <h3>SignIn</h3>
       <Form
         name="loginform"
         layout="vertical"

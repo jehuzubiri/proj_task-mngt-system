@@ -13,7 +13,7 @@ const GetStarted: React.FC<{
     <div className="getstarted">
       <img src={myImg} alt="" />
       <div className="getstarted_title">
-        <h2>Task Management System</h2>
+        <h3>Task Management System</h3>
         <p>TK Services Inc. Assessment Test</p>
       </div>
       <Button type="primary" onClick={() => setActiveTab("login")}>
