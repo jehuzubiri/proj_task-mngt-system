@@ -1,0 +1,95 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+#root {
+  overflow: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+body {
+  z-index: 1;
+  margin: 0 auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+::-webkit-scrollbar {
+  width: 1rem; //vertical
+  width: 0;
+}
+
+::-webkit-scrollbar-track {
+  background: #54595f;
+  // border-radius: 0.75rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 1px solid #54595f;
+  background-color: #1D232C;
+  // border-radius: 0.75rem;
+}
+
+
+p {
+  line-height: auto;
+  font-size: clamp(var(--h6Min), var(--fontScaler), var(--h6Max));
+}
+
+a {
+  text-decoration: none;
+  font-size: clamp(var(--h6Min), var(--fontScaler), var(--h6Max));
+}
+
+.textdesc {
+  font-size: 12px;
+}
+
+/* HEADINGS */
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(var(--h1Min), var(--fontScaler), var(--h1Max));
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(var(--h2Min), var(--fontScaler), var(--h2Max));
+}
+
+h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(var(--h3Min), var(--fontScaler), var(--h3Max));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a {
+  margin-bottom: 0;
+  color: $black-color;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  border-top: 1px solid $border-color;
+  background-color: white;
+}

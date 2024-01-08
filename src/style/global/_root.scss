@@ -1,0 +1,47 @@
+:root {
+  --primary-color: #6ec1e4;
+  --secondary-color: #54595f;
+  --text-color: #7a7a7a;
+  --light-color: #efefef;
+  --white-color: #fff;
+  --dark-strong: #24262B;
+  --dark-light: #32353C;
+  --gray-strong: #838998;
+  --gray-stronger: #5a5e68;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --margin-1: 0.8rem;
+  --margin-2: 1.2rem;
+  --margin-3: 1.6rem;
+  --margin-4: 2rem;
+  --margin-5: 2.4rem;
+
+  --padding-1: 0.8rem;
+  --padding-2: 1.2rem;
+  --padding-3: 1.6rem;
+  --padding-4: 2rem;
+  --padding-5: 2.4rem;
+
+  --h1Min: 2.8rem;
+  --h2Min: 2.2rem;
+  --h3Min: 1.6rem;
+  --h4Min: 1.2rem;
+  --h5Min: 0.8rem;
+  --h6Min: 0.6rem;
+  --h7Min: 0.4rem;
+
+  --h1Max: 3.6rem;
+  --h2Max: 3rem;
+  --h3Max: 2.4rem;
+  --h4Max: 2rem;
+  --h5Max: 1.6rem;
+  --h6Max: 1.4rem;
+  --h7Max: 1rem;
+
+  --fontScaler: 6vw;
+  --bodyMin: 1.2rem;
+  --bodyMax: 1.6rem;
+}

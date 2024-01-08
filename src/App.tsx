@@ -1,10 +1,18 @@
 import React from "react";
+import "./App.scss";
+import routes from "./routes/Routes";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 const App: React.FC = () => {
   return (
-    <div>
-      <p>Hello World</p>
-    </div>
+    <section className="mainapp">
+      <RouterProvider router={createBrowserRouter(routes())} />
+      <footer>
+        <p className="textdesc">
+          TK Services Int. LTD Assesment Test by Jehu Zubiri
+        </p>
+      </footer>
+    </section>
   );
 };
 
