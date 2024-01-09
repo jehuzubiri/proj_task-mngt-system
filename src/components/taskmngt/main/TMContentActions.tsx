@@ -28,6 +28,13 @@ const TMContentActions: React.FC<{
   const { searchInput } = useSelector((state: any) => state.tasksstore);
 
   //functions
+  const handleOpenDrawer = (fType: "addform" | "trashbin", title: string) => {
+    setDrawerConfig({
+      isOpen: true,
+      fType,
+      title,
+    });
+  };
 
   return (
     <div className="tmbc_actions d-flex-row_center-between">
@@ -36,11 +43,7 @@ const TMContentActions: React.FC<{
           icon={<PlusCircleOutlined />}
           type="primary"
           onClick={() => {
-            setDrawerConfig({
-              isOpen: true,
-              fType: "addform",
-              title: "Create New Task",
-            });
+            handleOpenDrawer("addform", "Create New Task");
           }}
         >
           New Task
@@ -64,11 +67,7 @@ const TMContentActions: React.FC<{
           icon={<DeleteOutlined />}
           type="link"
           onClick={() => {
-            setDrawerConfig({
-              isOpen: true,
-              fType: "trashbin",
-              title: "Recently Deleted Tasks",
-            });
+            handleOpenDrawer("trashbin", "Recently Deleted Tasks");
           }}
         >
           Deleted Tasks

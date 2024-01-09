@@ -3,7 +3,6 @@ import { TaskDetails, TaskInitStateType } from "@/helpers/Model";
 
 const initialState: TaskInitStateType = {
   taskList: [],
-  taskDetails: {},
   taskTrash: [],
   taskSelKeys: [],
   searchInput: "",

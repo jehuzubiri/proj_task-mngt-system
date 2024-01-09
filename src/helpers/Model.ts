@@ -41,14 +41,13 @@ export interface TaskDetails {
   key: string; //maintask~date
   dateCreated: string;
   title: string;
-  status: string;
+  status: "todo" | "inprog" | "completed";
   subtasks: SubTaskDetails[];
   imgatt: ImgDetails[];
 }
 
 export type TaskInitStateType = {
   taskList: TaskDetails[];
-  taskDetails: TaskDetails | {};
   taskTrash: TaskDetails[];
   taskSelKeys: string[];
   searchInput: string;
