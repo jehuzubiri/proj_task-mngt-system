@@ -1,3 +1,9 @@
+//Note: This Model Helpers can be modular defend on how the proj is.
+
+//ALL
+export type NotifType = "success" | "info" | "warning" | "error";
+
+//ACCOUNTS
 export interface Person {
   id: string;
   isGoogle: boolean;
@@ -7,8 +13,37 @@ export interface Person {
   password: string;
 }
 
-export type MainInitStateType = {
+export type AccInitStateType = {
   accountList: Person[];
   accountDetails: Person | {};
   isLoggedin: boolean;
+};
+
+//TASKS Main
+export interface SubTaskDetails {
+  key: string; //subtask~date
+  title: string;
+  isDone: boolean;
+}
+
+export interface ImgDetails {
+  key: string;
+  title: string;
+  url: string;
+}
+
+export interface TaskDetails {
+  key: string; //maintask~date
+  dateCreated: string;
+  title: string;
+  status: string;
+  subtasks: SubTaskDetails[];
+  imgatt: ImgDetails[];
+}
+
+export type TaskInitStateType = {
+  taskList: TaskDetails[];
+  taskDetails: TaskDetails | {};
+  taskTrash: TaskDetails[];
+  taskSelKeys: string[];
 };

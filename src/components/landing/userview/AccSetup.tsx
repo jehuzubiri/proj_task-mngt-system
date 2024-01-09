@@ -8,17 +8,16 @@ import SignUp from "./SignUp";
 //PLUGINS
 import { notification } from "antd";
 
+//HELPERS
+import { NotifType } from "@/helpers/Model";
+
 const AccSetup: React.FC = () => {
   //states
   const [activeTab, setActiveTab] = useState<string>("getstarted");
   const [api, contextHolder] = notification.useNotification();
 
   //functions
-  const popNotif = (
-    message: string,
-    description: string,
-    type: "success" | "info" | "warning" | "error"
-  ) => {
+  const popNotif = (message: string, description: string, type: NotifType) => {
     api[type]({
       message,
       description,

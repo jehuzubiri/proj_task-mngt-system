@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { MainInitStateType, Person } from "@/helpers/Model";
+import { AccInitStateType, Person } from "@/helpers/Model";
 
-const initialState: MainInitStateType = {
+const initialState: AccInitStateType = {
   accountList: [],
   accountDetails: {},
   isLoggedin: false,
@@ -12,16 +12,7 @@ const accountSlice = createSlice({
   initialState,
   reducers: {
     addAccount: (state, action: PayloadAction<Person>) => {
-      const { id, givenname, isGoogle, imgUrl, username, password } =
-        action.payload;
-      state.accountList.push({
-        id,
-        givenname,
-        isGoogle,
-        imgUrl,
-        username,
-        password,
-      });
+      state.accountList.push(action.payload);
     },
     signIn: (state, action: PayloadAction<Person>) => {
       state.accountDetails = action.payload;
