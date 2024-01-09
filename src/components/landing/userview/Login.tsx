@@ -12,29 +12,30 @@ const Login: React.FC<{
 }> = ({ setActiveTab }) => {
   //states
 
-  //functions
-  const onFinish = (values: any) => {
-    console.log("Success:", values);
-  };
-
   //TS states
   type FieldType = {
     username?: string;
     password?: string;
   };
 
+  //functions
+  const onFinish = (values: FieldType) => {
+    console.log("Success:", values);
+    const { username, password } = values;
+  };
+
   return (
-    <div className="loginmain">
-      <div className="loginmain_banner">
+    <div className="loginmain d-flex-col_center">
+      <div className="loginmain_banner d-flex-col_center">
         <img src={myImg} alt="" />
-        <p>Task Management System by Jehu</p>
+        <p>Assessment Test by Jehu</p>
       </div>
       <h3>SignIn</h3>
       <Form
         name="loginform"
         layout="vertical"
         onFinish={onFinish}
-        initialValues={{ remember: false }}
+        initialValues={{ remember: true }}
         autoComplete="off"
       >
         <Form.Item<FieldType>
@@ -42,14 +43,14 @@ const Login: React.FC<{
           name="username"
           rules={[{ required: true, message: "Please input your username!" }]}
         >
-          <Input />
+          <Input autoComplete="off" />
         </Form.Item>
         <Form.Item<FieldType>
           label="Password"
           name="password"
           rules={[{ required: true, message: "Please input your password!" }]}
         >
-          <Input.Password />
+          <Input.Password autoComplete="off" />
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit">
@@ -57,7 +58,7 @@ const Login: React.FC<{
           </Button>
         </Form.Item>
       </Form>
-      <div className="loginmain_actions">
+      <div className="loginmain_actions d-flex-col_center">
         <LoginGoogle />
         <p className="loginmain_actions_sign">
           Dont have an account yet?{" "}

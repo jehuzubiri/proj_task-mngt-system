@@ -7,7 +7,7 @@ import AdminAccList from "./adminview/AdminAccList";
 
 const Landing: React.FC = () => {
   return (
-    <section className="landing">
+    <section className="landing d-flex-row">
       <LandingItem
         title="User View"
         desc="This is what user's Landing Page looks like."

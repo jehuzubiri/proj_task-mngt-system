@@ -10,11 +10,11 @@ const GetStarted: React.FC<{
   setActiveTab: React.Dispatch<React.SetStateAction<string>>;
 }> = ({ setActiveTab }) => {
   return (
-    <div className="getstarted">
+    <div className="getstarted d-flex-col_center">
       <img src={myImg} alt="" />
       <div className="getstarted_title">
         <h3>Task Management System</h3>
-        <p>TK Services Inc. Assessment Test</p>
+        <p>Assessment Test by Jehu</p>
       </div>
       <Button type="primary" onClick={() => setActiveTab("login")}>
         Get Started

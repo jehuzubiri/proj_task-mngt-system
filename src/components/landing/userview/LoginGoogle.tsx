@@ -6,29 +6,36 @@ import { IResolveParams, LoginSocialGoogle } from "reactjs-social-login";
 
 const LoginGoogle: React.FC = () => {
   //states
-  // const REDIRECT_URI = "http://localhost:3000/account/login";
+  const GOOGLE_CLIENT_ID =
+    "7241488333-6ukh6rn7ri7r9irkvvqda74bnovk83oi.apps.googleusercontent.com";
+
+  //ts satates
+  type ResDataType = {
+    name?: string;
+    given_name?: string;
+    picture?: string;
+  };
 
   //functions
   const onLoginStart = useCallback(() => {
     // alert("login start");
   }, []);
 
-  const onLogout = useCallback(() => {}, []);
+  const onResolve = useCallback(() => {}, []);
 
   return (
     <div className="loginmain_actions_google">
       <LoginSocialGoogle
-        client_id="7241488333-6ukh6rn7ri7r9irkvvqda74bnovk83oi.apps.googleusercontent.com"
+        client_id={GOOGLE_CLIENT_ID}
         onLoginStart={onLoginStart}
-        // redirect_uri={REDIRECT_URI}
         onResolve={({ provider, data }: IResolveParams) => {
-          console.log(data);
+          const { name, given_name, picture } = data || {};
         }}
         onReject={(err) => {
           console.log(err);
         }}
       >
-        <div className="button">
+        <div className="button d-flex-row_center">
           <FcGoogle />
           <p>Login with Google</p>
         </div>

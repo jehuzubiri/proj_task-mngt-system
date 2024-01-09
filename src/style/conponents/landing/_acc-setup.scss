@@ -2,11 +2,7 @@
 
     //GET STARTED
     .getstarted {
-        display: flex;
-        flex-direction: column;
         gap: 2rem;
-        align-items: center;
-        justify-content: center;
 
         &_title {
             text-align: center;
@@ -22,30 +18,23 @@
         }
 
         img {
-            height: 20rem;
+            height: 16rem;
             width: auto;
         }
 
         button {
-            margin-top: 2rem;
+            margin-top: 4rem;
         }
 
     }
 
     //LOGIN
     .loginmain {
-        display: flex;
-        flex-direction: column;
         gap: 1rem;
-        align-items: center;
-        justify-content: center;
 
         &_banner {
             margin-bottom: 1rem;
-            display: flex;
-            flex-direction: column;
             gap: 1rem;
-            align-items: center;
 
             img {
                 height: 10rem;
@@ -54,24 +43,17 @@
 
             p {
                 color: $gray-color;
-                font-weight: 500;
+                font-weight: 300;
             }
         }
 
         &_actions {
-            display: flex;
-            flex-direction: column;
             gap: 1rem;
-            align-items: center;
 
             &_google {
-                display: flex;
-                align-items: center;
                 gap: 1.6rem;
 
                 .button {
-                    display: flex;
-                    align-items: center;
                     gap: 0.4rem;
                     cursor: pointer;
                     border: 1px solid $border-color;
@@ -109,6 +91,39 @@
             .ant-form-item button {
                 margin-top: 1.5rem;
                 width: 100%;
+            }
+        }
+    }
+
+    //SIGNUP
+    .signup {
+        gap: 1rem;
+
+        &_banner {
+            margin-bottom: 1rem;
+            gap: 1rem;
+
+            img {
+                height: 10rem;
+                width: auto;
+            }
+
+            p {
+                color: $gray-color;
+                font-weight: 300;
+            }
+        }
+
+        #signupform {
+            width: 30rem;
+
+            .ant-form-item,
+            button {
+                width: 100%;
+            }
+
+            button {
+                margin-top: 1.5rem;
             }
         }
     }

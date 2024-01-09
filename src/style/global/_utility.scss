@@ -93,3 +93,45 @@ footer {
   border-top: 1px solid $border-color;
   background-color: white;
 }
+
+// YOU CAN PUT MORE CONFIG HERE...
+.d-flex-row {
+  display: flex;
+}
+
+.d-flex-row_center {
+  display: flex;
+  align-items: center;
+}
+
+.d-flex-row_center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.d-flex-row_center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.d-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.d-flex-col_center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gap1 {
+  gap: 1rem;
+}
+
+.gap2 {
+  gap: 2rem;
+}
