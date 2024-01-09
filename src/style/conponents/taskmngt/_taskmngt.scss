@@ -12,7 +12,7 @@
             @include main_card;
             padding: 2rem;
             gap: 1rem;
-            height: calc(100vh - 12.5rem);
+            height: calc(100vh - 13.2rem);
 
             .tmbc_actions {
                 padding-bottom: 2rem;
@@ -69,6 +69,14 @@
         }
 
         &_logout {
+            img {
+                height: 2.4rem;
+                width: 2.4rem;
+                border-radius: 50%;
+                overflow: hidden;
+                color: white;
+            }
+
             p {
                 font-weight: 400;
             }

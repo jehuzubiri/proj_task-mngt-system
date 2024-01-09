@@ -39,6 +39,12 @@ const tasksSlice = createSlice({
     setSearchInput: (state, action: PayloadAction<string>) => {
       state.searchInput = action.payload;
     },
+    resetTaskStore: (state, action: PayloadAction<string>) => {
+      state.taskList = [];
+      state.taskTrash = [];
+      state.taskSelKeys = [];
+      state.searchInput = "";
+    },
   },
 });
 
@@ -50,5 +56,6 @@ export const {
   restoreTask,
   emptyTrash,
   setSearchInput,
+  resetTaskStore,
 } = actions;
 export default reducer;

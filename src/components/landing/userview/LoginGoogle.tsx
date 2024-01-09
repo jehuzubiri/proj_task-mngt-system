@@ -12,7 +12,13 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { signIn } from "../../../store/feature/accountSlice";
 
-const LoginGoogle: React.FC = () => {
+const LoginGoogle: React.FC<{
+  popNotif: (
+    message: string,
+    description: string,
+    type: "success" | "info" | "warning" | "error"
+  ) => void;
+}> = ({ popNotif }) => {
   //plugins
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -20,13 +26,6 @@ const LoginGoogle: React.FC = () => {
   //states
   const GOOGLE_CLIENT_ID =
     "7241488333-6ukh6rn7ri7r9irkvvqda74bnovk83oi.apps.googleusercontent.com";
-
-  //ts satates
-  type ResDataType = {
-    name?: string;
-    given_name?: string;
-    picture?: string;
-  };
 
   //functions
   const onLoginStart = useCallback(() => {
@@ -55,6 +54,11 @@ const LoginGoogle: React.FC = () => {
         }}
         onReject={(err) => {
           console.log(err);
+          popNotif(
+            "Something Went Wrong",
+            "The email you selected does not have permission on this application. Please contact administrator or create an account (SignUp)",
+            "error"
+          );
         }}
       >
         <div className="button d-flex-row_center">

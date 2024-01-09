@@ -2,7 +2,7 @@ import React from "react";
 
 //IMAGES
 import myImg from "../../../img/undraw-coffee-2.svg";
-import personIcon from "../../../img/person-circle.svg";
+import personIcon from "../../../img/person.svg";
 
 //REDUX
 import { useDispatch, useSelector } from "react-redux";

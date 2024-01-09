@@ -55,7 +55,7 @@ const Login: React.FC<{
       if (!Object.keys(accDetails))
         popNotif(
           "Invalid Credientials",
-          " Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
           "error"
         );
     } else
@@ -101,7 +101,7 @@ const Login: React.FC<{
         </Form.Item>
       </Form>
       <div className="loginmain_actions d-flex-col_center">
-        <LoginGoogle />
+        <LoginGoogle popNotif={popNotif} />
         <p className="loginmain_actions_sign">
           Dont have an account yet?{" "}
           <span onClick={() => setActiveTab("signup")}>SignUp</span>

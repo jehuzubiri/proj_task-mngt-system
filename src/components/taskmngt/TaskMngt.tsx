@@ -82,9 +82,9 @@ const TaskMngt: React.FC = () => {
   };
 
   //eff
-  // useEffect(() => {
-  //   if (!isLoggedin) navigate("/");
-  // }, [isLoggedin]);
+  useEffect(() => {
+    if (!isLoggedin) navigate("/");
+  }, [isLoggedin]);
 
   return (
     <section className="tasksmain d-flex-col">

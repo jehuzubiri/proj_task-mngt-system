@@ -1,7 +1,7 @@
 import React from "react";
 
 //PLUGINS
-import { Collapse, Progress, Button } from "antd";
+import { Collapse, Progress, Button, Popover } from "antd";
 
 const TMContentList: React.FC = () => {
   //states
@@ -33,7 +33,14 @@ const TMContentList: React.FC = () => {
                   <p className="title">Sample Task Title Here</p>
                   <div className="infosandactions">
                     <div className="item status completed">
-                      <p>Completed</p>
+                      <Popover
+                        content={<p>Some Content</p>}
+                        title="Update Status"
+                        trigger="click"
+                        placement="topLeft"
+                      >
+                        <p>Completed</p>
+                      </Popover>
                     </div>
                     <div className="item subtasks">
                       <p>SubTasks:</p>

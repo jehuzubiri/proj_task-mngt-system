@@ -18,7 +18,7 @@ const accountSlice = createSlice({
       state.accountDetails = action.payload;
       state.isLoggedin = true;
     },
-    logOut: (state, action: any) => {
+    logOut: (state, action: PayloadAction<string>) => {
       state.accountDetails = {};
       state.isLoggedin = false;
     },
