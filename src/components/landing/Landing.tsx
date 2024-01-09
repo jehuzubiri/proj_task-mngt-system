@@ -1,7 +1,7 @@
 import React from "react";
 
 //COMPONENTS
-import LandingItem from "./customcomp/LandingItem";
+import LandingItem from "./other/LandingItem";
 import AccSetup from "./userview/AccSetup";
 import AdminAccList from "./adminview/AdminAccList";
 

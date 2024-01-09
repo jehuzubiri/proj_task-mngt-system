@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSearchInput } from "../../../store/feature/tasksSlice";
 
 //PLUGINS
-import { Button, Input } from "antd";
 import {
   PlusCircleOutlined,
   DeleteOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
 import { BsSortDown, BsSortUp } from "react-icons/bs";
+import { Button, Input, Checkbox } from "antd";
 
 //HELPERS
 import { DrawerConfigType } from "@/helpers/Model";
@@ -20,7 +20,15 @@ const TMContentActions: React.FC<{
   descending: boolean;
   setDescending: React.Dispatch<React.SetStateAction<boolean>>;
   setDrawerConfig: React.Dispatch<React.SetStateAction<DrawerConfigType>>;
-}> = ({ descending, setDescending, setDrawerConfig }) => {
+  hideCompleted: boolean;
+  setHideCompleted: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({
+  descending,
+  setDescending,
+  setDrawerConfig,
+  hideCompleted,
+  setHideCompleted,
+}) => {
   //plugins
   const dispatch = useDispatch();
 
@@ -34,6 +42,11 @@ const TMContentActions: React.FC<{
       fType,
       title,
     });
+  };
+
+  const onChange = () => {
+    // console.log(e.target.checked);
+    setHideCompleted(!hideCompleted);
   };
 
   return (
@@ -54,6 +67,9 @@ const TMContentActions: React.FC<{
           prefix={<SearchOutlined />}
           onChange={(e) => dispatch(setSearchInput(e.target.value))}
         />
+        <Checkbox value={hideCompleted} onChange={onChange}>
+          Hide Completed
+        </Checkbox>
       </div>
       <div className="tmbc_actions_others d-flex-row_center gap2">
         <Button
@@ -70,7 +86,7 @@ const TMContentActions: React.FC<{
             handleOpenDrawer("trashbin", "Recently Deleted Tasks");
           }}
         >
-          Deleted Tasks
+          Recently Deleted
         </Button>
       </div>
     </div>

@@ -17,6 +17,7 @@ import TMHeader from "./main/TMHeader";
 import TMContentActions from "./main/TMContentActions";
 import TMDrawer from "./main/TMDrawer";
 import TMCreateTaskForm from "./main/TMCreateTaskForm";
+import TMContentList from "./tasks-list/TMContentList";
 
 const TaskMngt: React.FC = () => {
   //plugins
@@ -29,6 +30,7 @@ const TaskMngt: React.FC = () => {
 
   //states
   const [descending, setDescending] = useState<boolean>(true);
+  const [hideCompleted, setHideCompleted] = useState<boolean>(false);
   const [stName, setStName] = useState<string>("");
   const [stItems, setStItems] = useState<string[]>([]);
   const [drawerConfig, setDrawerConfig] = useState<DrawerConfigType>({
@@ -88,12 +90,15 @@ const TaskMngt: React.FC = () => {
     <section className="tasksmain d-flex-col">
       <TMHeader />
       <div className="tasksmain_body">
-        <div className="tasksmain_body_container d-flex-col">
+        <div className="tasksmain_body_container d-flex-col gap2">
           <TMContentActions
             descending={descending}
             setDescending={setDescending}
             setDrawerConfig={setDrawerConfig}
+            hideCompleted={hideCompleted}
+            setHideCompleted={setHideCompleted}
           />
+          <TMContentList />
         </div>
         <TMDrawer drawerConfig={drawerConfig} drawerOnClose={drawerOnClose}>
           {drawerConfig.fType === "addform" ? (
