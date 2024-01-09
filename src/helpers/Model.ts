@@ -2,6 +2,11 @@
 
 //ALL
 export type NotifType = "success" | "info" | "warning" | "error";
+export type DrawerConfigType = {
+  isOpen: boolean;
+  fType: "trashbin" | "addform";
+  title: string;
+};
 
 //ACCOUNTS
 export interface Person {
@@ -46,4 +51,5 @@ export type TaskInitStateType = {
   taskDetails: TaskDetails | {};
   taskTrash: TaskDetails[];
   taskSelKeys: string[];
+  searchInput: string;
 };

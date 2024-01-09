@@ -6,6 +6,7 @@ const initialState: TaskInitStateType = {
   taskDetails: {},
   taskTrash: [],
   taskSelKeys: [],
+  searchInput: "",
 };
 
 const tasksSlice = createSlice({
@@ -36,10 +37,19 @@ const tasksSlice = createSlice({
     emptyTrash: (state, action: any) => {
       state.taskTrash = [];
     },
+    setSearchInput: (state, action: PayloadAction<string>) => {
+      state.searchInput = action.payload;
+    },
   },
 });
 
 const { reducer, actions } = tasksSlice;
-export const { addTask, updateTask, deleteTask, restoreTask, emptyTrash } =
-  actions;
+export const {
+  addTask,
+  updateTask,
+  deleteTask,
+  restoreTask,
+  emptyTrash,
+  setSearchInput,
+} = actions;
 export default reducer;

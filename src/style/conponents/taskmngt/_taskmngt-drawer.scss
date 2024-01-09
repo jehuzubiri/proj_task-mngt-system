@@ -1,0 +1,42 @@
+.tasksmain {
+    &_body {
+        position: relative;
+
+        .ant-drawer-wrapper-body {
+            .ant-drawer-header {
+                padding: 0.84rem 1rem 0.84rem 2rem;
+
+                .ant-drawer-header-title {
+                    flex-direction: row-reverse;
+
+                    .ant-drawer-title {
+                        color: $black-color;
+                        font-size: clamp(var(--h6Min), var(--fontScaler), var(--h6Max));
+                        font-weight: 600;
+                    }
+
+                    .ant-drawer-close {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 0;
+
+                        svg {
+                            height: 2rem;
+                            width: auto;
+                        }
+                    }
+                }
+            }
+
+            .ant-drawer-body {
+                padding: 0 0.5rem 1rem 0;
+
+                .drawercontainer {
+                    padding: 2rem;
+                }
+            }
+        }
+
+    }
+}

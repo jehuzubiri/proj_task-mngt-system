@@ -1,4 +1,4 @@
-import MainApp from "../components/taskmngt/MainApp";
+import TaskMngt from "../components/taskmngt/TaskMngt";
 import Landing from "../components/landing/Landing";
 
 const routes = (): Array<Object> => [
@@ -8,7 +8,7 @@ const routes = (): Array<Object> => [
   },
   {
     path: "/main",
-    element: <MainApp />,
+    element: <TaskMngt />,
   },
 ];
 

@@ -1,0 +1,91 @@
+.tasksmain {
+    height: calc(100vh - 35px);
+
+    //BODY
+    &_body {
+        display: flex;
+        background-color: $bluegray-color;
+        padding: 2rem;
+        height: 100%;
+
+        &_container {
+            @include main_card;
+            padding: 2rem;
+
+            .tmbc_actions {
+                // padding-bottom: 2rem;
+                // border-bottom: 1px solid $border-color;
+
+                &_main {
+                    .ant-input-affix-wrapper {
+                        width: 30rem;
+                    }
+                }
+
+                &_others {
+                    button {
+                        padding: 0;
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+
+    //HEADER
+    &_header {
+        padding: 1.5rem 2rem;
+        background-color: $black-color;
+
+        .item p,
+        .item svg {
+            color: $white-color;
+        }
+
+        .item svg {
+            height: 2rem;
+            width: auto;
+        }
+
+        .item .pipe {
+            opacity: 0.3;
+        }
+
+        &_apptitle {
+            p {
+                font-weight: 700;
+                letter-spacing: 1px;
+            }
+        }
+
+        &_logout {
+            p {
+                font-weight: 400;
+            }
+
+            .button {
+                cursor: pointer;
+
+                p,
+                svg {
+                    transition: all 0.3s;
+                }
+
+                &:hover {
+
+                    p,
+                    svg {
+                        color: $primary-color;
+                    }
+
+                    svg {
+                        transform: scale(0.9);
+                    }
+                }
+
+            }
+
+        }
+    }
+}

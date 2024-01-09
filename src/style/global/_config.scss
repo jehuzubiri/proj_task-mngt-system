@@ -10,3 +10,12 @@ $success-color: #00C18D;
 $info-color: #14B2E2;
 $warning-color: #FCA522;
 $error-color: #E54D42;
+
+@mixin main_card {
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 1rem;
+}
