@@ -2,26 +2,73 @@ import React from "react";
 
 //IMAGES
 import myImg from "../../../img/undraw-coffee-2.svg";
+import personIcon from "../../../img/person-circle.svg";
+
+//REDUX
+import { useDispatch, useSelector } from "react-redux";
+import { addAccount } from "../../../store/feature/accountSlice";
 
 //PLUGINS
 import { Button, Form, Input } from "antd";
 
+//HELPERS
+import { Person } from "@/helpers/Model";
+
 const SignUp: React.FC<{
   setActiveTab: React.Dispatch<React.SetStateAction<string>>;
-}> = ({ setActiveTab }) => {
-  //states
+  popNotif: (
+    message: string,
+    description: string,
+    type: "success" | "info" | "warning" | "error"
+  ) => void;
+}> = ({ setActiveTab, popNotif }) => {
+  //plugins
+  const dispatch = useDispatch();
+
+  //retux store
+  const { accountList } = useSelector((state: any) => state.accountstore);
 
   //TS states
   type FieldType = {
-    givenname?: string;
-    username?: string;
-    password?: string;
+    givenname: string;
+    username: string;
+    password: string;
   };
 
   //functions
-  const onFinish = (values: FieldType) => {
-    console.log("Success:", values);
+  const onFinish = (values: Person) => {
+    const { username } = values;
+    if (!accountList.length) {
+      onFinishFinal(values);
+    } else {
+      const newList = [...accountList].map((i) => i.username);
+      if (newList.includes(username)) {
+        popNotif(
+          `Username ${username} is already taken.`,
+          "Please use other unique username lorem ipsum dolor amet.",
+          "warning"
+        );
+      } else onFinishFinal(values);
+    }
+  };
+
+  const onFinishFinal = (values: Person) => {
     const { givenname, username, password } = values;
+    const data: Person = {
+      id: `${Date.now()}`,
+      isGoogle: false,
+      givenname,
+      imgUrl: personIcon,
+      username,
+      password,
+    };
+    dispatch(addAccount(data));
+    popNotif(
+      `Create Account: ${givenname}`,
+      "Account successfully created lorem ipsum dolor amet.",
+      "success"
+    );
+    setActiveTab("login");
   };
 
   return (

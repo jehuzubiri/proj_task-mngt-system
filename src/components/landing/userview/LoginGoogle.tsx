@@ -1,10 +1,22 @@
 import React, { useCallback, useState } from "react";
 
+//HELPERS
+import { Person } from "@/helpers/Model";
+
 //PLUGINS
 import { FcGoogle } from "react-icons/fc";
 import { IResolveParams, LoginSocialGoogle } from "reactjs-social-login";
+import { useNavigate } from "react-router-dom";
+
+//REDUX
+import { useSelector, useDispatch } from "react-redux";
+import { signIn } from "../../../store/feature/accountSlice";
 
 const LoginGoogle: React.FC = () => {
+  //plugins
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   //states
   const GOOGLE_CLIENT_ID =
     "7241488333-6ukh6rn7ri7r9irkvvqda74bnovk83oi.apps.googleusercontent.com";
@@ -29,7 +41,17 @@ const LoginGoogle: React.FC = () => {
         client_id={GOOGLE_CLIENT_ID}
         onLoginStart={onLoginStart}
         onResolve={({ provider, data }: IResolveParams) => {
-          const { name, given_name, picture } = data || {};
+          const { name: givenname, given_name, picture } = data || {};
+          const accData: Person = {
+            id: `${Date.now()}`,
+            isGoogle: true,
+            givenname,
+            imgUrl: picture,
+            username: "Google Account",
+            password: "Google Account",
+          };
+          dispatch(signIn(accData));
+          navigate("/main");
         }}
         onReject={(err) => {
           console.log(err);
