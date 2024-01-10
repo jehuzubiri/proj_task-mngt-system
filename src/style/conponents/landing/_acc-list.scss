@@ -1,0 +1,10 @@
+.accountlist {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    &_empty {
+        height: 100%;
+        width: 100%;
+    }
+}

@@ -27,6 +27,7 @@ const TMDrawer: React.FC<Props> = ({
       width={"55rem"}
       open={drawerConfig.isOpen}
       getContainer={false}
+      // closable={false}
     >
       <div className="drawercontainer">{children}</div>
     </Drawer>

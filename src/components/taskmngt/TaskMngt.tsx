@@ -102,27 +102,17 @@ const TaskMngt: React.FC = () => {
         </div>
         <TMDrawer drawerConfig={drawerConfig} drawerOnClose={drawerOnClose}>
           {drawerConfig.fType === "addform" ? (
-            <>
-              <TMCreateTaskForm
-                form={form}
-                formData={formData}
-                setFormData={setFormData}
-                onFinish={onFinish}
-                stName={stName}
-                setStName={setStName}
-                stItems={stItems}
-                setStItems={setStItems}
-              />
-              <div className="footeraction">
-                <Button
-                  disabled={!formData.title.length}
-                  type="primary"
-                  onClick={() => form.submit()}
-                >
-                  Create
-                </Button>
-              </div>
-            </>
+            <TMCreateTaskForm
+              form={form}
+              formData={formData}
+              setFormData={setFormData}
+              onFinish={onFinish}
+              drawerOnClose={drawerOnClose}
+              stName={stName}
+              setStName={setStName}
+              stItems={stItems}
+              setStItems={setStItems}
+            />
           ) : (
             <p>Deleted Lists</p>
           )}

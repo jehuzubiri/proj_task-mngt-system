@@ -1,9 +1,9 @@
 import React from "react";
 
 //COMPONENTS
-import LandingItem from "./other/LandingItem";
-import AccSetup from "./userview/AccSetup";
-import AdminAccList from "./adminview/AdminAccList";
+import LandingItem from "./customcomponent/LandingItem";
+import AccSetup from "./accountconfig/AccSetup";
+import AdminAccList from "./accountlist/AdminAccList";
 
 const Landing: React.FC = () => {
   return (
