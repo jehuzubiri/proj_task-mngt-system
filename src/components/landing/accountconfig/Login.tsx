@@ -44,15 +44,17 @@ const Login: React.FC<{
     const { username: uName, password: pw } = values;
 
     if (accountList?.length) {
+      let accExist: boolean = false;
       accountList.forEach((acc: Person) => {
         const { username, password } = acc;
         if (uName === username && pw === password) {
+          accExist = true;
           accDetails = acc;
           dispatch(signIn(acc));
           navigate("/main");
         }
       });
-      if (!Object.keys(accDetails))
+      if (!accExist)
         popNotif(
           "Invalid Credientials",
           "Lorem ipsum dolor sit amet consectetur adipisicing elit.",

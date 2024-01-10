@@ -73,9 +73,15 @@ const TaskItemChild: React.FC<{
   return (
     <div className="taskitem_children">
       <div className="subtaskcontainer">
-        <p className="subtaskcontainer_title">
-          Note: Use switch to mark subtask item status as done
-        </p>
+        {subtasks.length ? (
+          <p className="subtaskcontainer_title">
+            Note: Use switch to mark subtask item status as done
+          </p>
+        ) : (
+          <p>
+            Create sub-task issues to split up larger pieces of work into tasks.
+          </p>
+        )}
         {subtasks.map((st) => (
           <div
             key={st.key}

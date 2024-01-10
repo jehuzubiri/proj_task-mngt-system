@@ -3,6 +3,10 @@ import Landing from "../components/landing/Landing";
 
 const routes = (): Array<Object> => [
   {
+    path: "*",
+    element: <Landing />,
+  },
+  {
     path: "/",
     element: <Landing />,
   },
