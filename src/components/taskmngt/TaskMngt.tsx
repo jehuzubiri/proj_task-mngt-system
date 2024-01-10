@@ -90,6 +90,19 @@ const TaskMngt: React.FC = () => {
   //effects
   useEffect(() => {
     const newList = [...taskList]
+      .map((task) => {
+        const { key } = task;
+        const timestamp = parseInt(key.split("~")[1]);
+        return {
+          ...task,
+          timestamp,
+        };
+      })
+      .sort((a, b) => {
+        return descending
+          ? b.timestamp - a.timestamp
+          : a.timestamp - b.timestamp;
+      })
       .filter((task) => {
         return hideCompleted ? task.status !== "completed" : task;
       })
