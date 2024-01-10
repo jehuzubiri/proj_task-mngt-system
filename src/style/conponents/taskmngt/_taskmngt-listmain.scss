@@ -84,4 +84,13 @@
             }
         }
     }
+
+    &_empty {
+        height: 100%;
+        width: 100%;
+
+        p {
+            color: $gray-color;
+        }
+    }
 }

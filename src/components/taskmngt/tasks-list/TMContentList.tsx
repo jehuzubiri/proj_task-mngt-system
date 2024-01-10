@@ -1,33 +1,42 @@
 import React from "react";
 
 //PLUGINS
-import { Collapse, Progress, Button, Popover } from "antd";
+import { Collapse, Progress, Button, Popover, Empty } from "antd";
 
 //COMPONENTS
 import TaskItem from "./TaskItem";
 
-const TMContentList: React.FC = () => {
+//HELPERS
+import { TaskDetails } from "@/helpers/Model";
+
+const TMContentList: React.FC<{
+  dataList: TaskDetails[];
+}> = ({ dataList }) => {
   //states
-  const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
 
   return (
     <div className="tmbc_mainlist">
-      <div className="tmbc_mainlist_container d-flex-col gap1">
-        <div className="headertitle d-flex-row_center-between">
-          <p className="left">Task Label</p>
-          <div className="right d-flex-row_center">
-            <p>Task Status</p>
-            <p>SubTask Status</p>
-            <p>Date Created</p>
-            <p>Action</p>
+      {dataList.length ? (
+        <div className="tmbc_mainlist_container d-flex-col gap1">
+          <div className="headertitle d-flex-row_center-between">
+            <p className="left">Task Label</p>
+            <div className="right d-flex-row_center">
+              <p>Task Status</p>
+              <p>SubTask Status</p>
+              <p>Date Created</p>
+              <p>Action</p>
+            </div>
           </div>
+          {dataList.map((task) => (
+            <TaskItem task={task} />
+          ))}
         </div>
-        <TaskItem />
-      </div>
+      ) : (
+        <div className="tmbc_mainlist_empty d-flex-col_center">
+          <Empty description="" />
+          <p>Create Tasks to Manage</p>
+        </div>
+      )}
     </div>
   );
 };

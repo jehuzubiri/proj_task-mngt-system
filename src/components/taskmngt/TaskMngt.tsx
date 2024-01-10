@@ -27,9 +27,14 @@ const TaskMngt: React.FC = () => {
 
   //retux store
   const { isLoggedin } = useSelector((state: any) => state.accountstore);
+  const { taskList, searchInput } = useSelector(
+    (state: any) => state.tasksstore
+  );
 
   //states
+
   const [descending, setDescending] = useState<boolean>(true);
+  const [dataList, setDataList] = useState<TaskDetails[]>([]);
   const [hideCompleted, setHideCompleted] = useState<boolean>(false);
   const [stName, setStName] = useState<string>("");
   const [stItems, setStItems] = useState<string[]>([]);
@@ -81,7 +86,20 @@ const TaskMngt: React.FC = () => {
     drawerOnClose();
   };
 
-  //eff
+  //effects
+  useEffect(() => {
+    const newList = [...taskList]
+      .filter((task) => {
+        return hideCompleted ? task.status !== "completed" : task;
+      })
+      .filter((task) => {
+        return searchInput !== ""
+          ? task.title.toLowerCase().includes(searchInput)
+          : task;
+      });
+    setDataList(newList);
+  }, [taskList, descending, hideCompleted, searchInput]);
+
   useEffect(() => {
     if (!isLoggedin) navigate("/");
   }, [isLoggedin]);
@@ -98,7 +116,7 @@ const TaskMngt: React.FC = () => {
             hideCompleted={hideCompleted}
             setHideCompleted={setHideCompleted}
           />
-          <TMContentList />
+          <TMContentList dataList={dataList} />
         </div>
         <TMDrawer drawerConfig={drawerConfig} drawerOnClose={drawerOnClose}>
           {drawerConfig.fType === "addform" ? (

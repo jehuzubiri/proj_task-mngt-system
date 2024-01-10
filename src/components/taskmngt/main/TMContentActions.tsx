@@ -33,7 +33,9 @@ const TMContentActions: React.FC<{
   const dispatch = useDispatch();
 
   //retux store
-  const { searchInput } = useSelector((state: any) => state.tasksstore);
+  const { searchInput, taskList } = useSelector(
+    (state: any) => state.tasksstore
+  );
 
   //functions
   const handleOpenDrawer = (fType: "addform" | "trashbin", title: string) => {
@@ -62,17 +64,23 @@ const TMContentActions: React.FC<{
           New Task
         </Button>
         <Input
+          disabled={!taskList.length}
           value={searchInput}
           placeholder="Search task by name"
           prefix={<SearchOutlined />}
           onChange={(e) => dispatch(setSearchInput(e.target.value))}
         />
-        <Checkbox value={hideCompleted} onChange={onChange}>
+        <Checkbox
+          disabled={!taskList.length}
+          value={hideCompleted}
+          onChange={onChange}
+        >
           Hide Completed
         </Checkbox>
       </div>
       <div className="tmbc_actions_others d-flex-row_center gap2">
         <Button
+          disabled={!taskList.length}
           icon={descending ? <BsSortDown /> : <BsSortUp />}
           type="link"
           onClick={() => setDescending(!descending)}
