@@ -11,6 +11,7 @@ const rootReducers = {
 
 export const store = configureStore({
   reducer: rootReducers,
+  devTools: process.env.NODE_ENV !== "production",
 });
 
 export default store;
