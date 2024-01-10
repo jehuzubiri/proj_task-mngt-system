@@ -9,7 +9,7 @@ const App: React.FC = () => {
       <RouterProvider router={createBrowserRouter(routes())} />
       <footer>
         <p className="textdesc">
-          TK Services Int. LTD Assesment Test by Jehu Zubiri
+          TK Services Int. LTD Assessment Test by Jehu Zubiri
         </p>
       </footer>
     </section>
