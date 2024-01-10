@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 
 //PLUGINS
-import { Collapse, Progress, Button, Popover } from "antd";
+import { Collapse, Progress, Button, Popover, Space, Radio } from "antd";
+import type { RadioChangeEvent } from "antd";
 
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
-import { deleteTask } from "../../../store/feature/tasksSlice";
+import { deleteTask, updateTask } from "../../../store/feature/tasksSlice";
 
 //COMPONENTS
 import TaskItemChild from "./TaskItemChild";
 
 //HELPERS
-import { TaskDetails } from "@/helpers/Model";
+import { StatusOptTypes, TaskDetails } from "@/helpers/Model";
 
 const TaskItem: React.FC<{
   task: TaskDetails;
@@ -25,14 +26,22 @@ const TaskItem: React.FC<{
   //states main
   const [subTProg, setSubTProg] = useState<number>(0);
   const [statusLabel, setStatusLabel] = useState<
-    "Pending" | "In Progress" | "Completed"
-  >("Pending");
+    "Todo" | "In Progress" | "Completed"
+  >("Todo");
+
+  //functions
+  const handleStatus = (e: RadioChangeEvent) => {
+    let newDetails: TaskDetails = { ...task };
+    let newStats: StatusOptTypes = e.target.value;
+    newDetails.status = newStats;
+    dispatch(updateTask(newDetails));
+  };
 
   //eff
   useEffect(() => {
     switch (status) {
       case "todo":
-        setStatusLabel("Pending");
+        setStatusLabel("Todo");
         break;
       case "inprog":
         setStatusLabel("In Progress");
@@ -47,7 +56,8 @@ const TaskItem: React.FC<{
     if (subtasks.length) {
       const items = subtasks.length;
       const doneItem = [...subtasks].filter((i) => i.isDone).length;
-      setSubTProg((doneItem / items) * 100);
+      const val: number = parseFloat(((doneItem / items) * 100).toFixed(2));
+      setSubTProg(val);
     } else setSubTProg(0);
   }, [subtasks]);
 
@@ -63,23 +73,38 @@ const TaskItem: React.FC<{
               <p className="title">{title}</p>
               <div className="infosandactions">
                 <div className={`item status ${status}`}>
-                  <Popover
-                    content={<p>Some Content</p>}
-                    title="Update Status"
-                    trigger="click"
-                    placement="topLeft"
-                  >
-                    <p>{statusLabel}</p>
-                  </Popover>
+                  <p>{statusLabel}</p>
                 </div>
                 <div className="item subtasks">
                   <p>SubTasks:</p>
-                  <Progress percent={subTProg} size="small" status="normal" />
+                  <Progress
+                    percent={subTProg}
+                    size="small"
+                    status={subTProg === 100 ? "success" : "normal"}
+                  />
                 </div>
                 <div className="item date">
                   <p>{dateCreated}</p>
                 </div>
                 <div className="item actions">
+                  <Popover
+                    content={
+                      <Radio.Group onChange={handleStatus} value={status}>
+                        <Space direction="vertical">
+                          <Radio value="todo">Todo</Radio>
+                          <Radio value="inprog">In Progress</Radio>
+                          <Radio value="completed">Completed</Radio>
+                        </Space>
+                      </Radio.Group>
+                    }
+                    title="Update Status"
+                    trigger="click"
+                    placement="topLeft"
+                  >
+                    <Button type="link" size="small">
+                      Update
+                    </Button>
+                  </Popover>
                   <Button
                     type="link"
                     danger

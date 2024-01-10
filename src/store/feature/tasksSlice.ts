@@ -33,7 +33,7 @@ const tasksSlice = createSlice({
       state.taskTrash = [...state.taskTrash].filter((i) => i.key !== key);
       state.taskList.push(action.payload);
     },
-    emptyTrash: (state, action: any) => {
+    emptyTrash: (state, action: PayloadAction<string>) => {
       state.taskTrash = [];
     },
     setSearchInput: (state, action: PayloadAction<string>) => {

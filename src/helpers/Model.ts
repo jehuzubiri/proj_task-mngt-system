@@ -37,11 +37,13 @@ export interface ImgDetails {
   url: string;
 }
 
+export type StatusOptTypes = "todo" | "inprog" | "completed";
+
 export interface TaskDetails {
   key: string; //maintask~date
   dateCreated: string;
   title: string;
-  status: "todo" | "inprog" | "completed";
+  status: StatusOptTypes;
   subtasks: SubTaskDetails[];
   imgatt: ImgDetails[];
 }

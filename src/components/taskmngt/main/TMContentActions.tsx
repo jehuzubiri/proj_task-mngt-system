@@ -11,6 +11,7 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import { BsSortDown, BsSortUp } from "react-icons/bs";
+import { IoTrashBinOutline } from "react-icons/io5";
 import { Button, Input, Checkbox } from "antd";
 
 //HELPERS
@@ -88,7 +89,7 @@ const TMContentActions: React.FC<{
           {`Sort by Date (${descending ? "Desc" : "Asc"})`}
         </Button>
         <Button
-          icon={<DeleteOutlined />}
+          icon={<IoTrashBinOutline />}
           type="link"
           onClick={() => {
             handleOpenDrawer("trashbin", "Recently Deleted Tasks");

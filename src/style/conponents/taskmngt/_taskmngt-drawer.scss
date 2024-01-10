@@ -33,7 +33,54 @@
                 padding: 0 0.5rem 1rem 0;
 
                 .drawercontainer {
+                    height: 100%;
+                    overflow: hidden;
                     padding: 2rem;
+
+                    .trashlist {
+                        border-radius: 0.25rem;
+                        height: 100%;
+
+                        &_container {
+                            // border: 1px solid orange;
+                            height: 100%;
+                            overflow: hidden;
+                            display: flex;
+                            flex-direction: column;
+
+                            &_action {
+                                padding-bottom: 0.4rem;
+                                margin-bottom: 1rem;
+                                border-bottom: 1px solid $gray-color;
+                            }
+
+                            &_list {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 0.4rem;
+
+                                .trash_item {
+                                    padding: 0 1.2rem;
+
+                                    .title {
+                                        gap: 0.4rem;
+
+                                        svg {
+                                            height: 1.4rem;
+                                            width: auto;
+                                            color: $black-light-color;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        &_empty {
+                            border: 1px solid $border-color;
+                            height: 100%;
+                        }
+
+                    }
                 }
             }
         }

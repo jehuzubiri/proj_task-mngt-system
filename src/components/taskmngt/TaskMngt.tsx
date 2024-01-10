@@ -18,6 +18,7 @@ import TMContentActions from "./main/TMContentActions";
 import TMDrawer from "./main/TMDrawer";
 import TMCreateTaskForm from "./main/TMCreateTaskForm";
 import TMContentList from "./tasks-list/TMContentList";
+import TMTrashList from "./main/TMTrashList";
 
 const TaskMngt: React.FC = () => {
   //plugins
@@ -132,7 +133,7 @@ const TaskMngt: React.FC = () => {
               setStItems={setStItems}
             />
           ) : (
-            <p>Deleted Lists</p>
+            <TMTrashList />
           )}
         </TMDrawer>
       </div>

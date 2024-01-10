@@ -1,7 +1,7 @@
 import React from "react";
 
 //PLUGINS
-import { Collapse, Progress, Button, Popover, Empty } from "antd";
+import { Empty } from "antd";
 
 //COMPONENTS
 import TaskItem from "./TaskItem";

@@ -22,6 +22,7 @@
             }
         }
 
+        // COLLAPSE HEADER
         .taskitem_label {
             // background-color: white;
             display: flex;
@@ -81,6 +82,35 @@
                         color: $success-color;
                     }
                 }
+            }
+        }
+
+        // TASK ITEM CONTAINER
+        .taskitem_children {
+            // border: 1px solid green;
+
+            .subtaskcontainer {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                &_title {
+                    color: $gray-color;
+                }
+
+                &_item {
+                    button {
+                        padding: 0;
+                    }
+
+                    .done {
+                        text-decoration: line-through;
+                        color: $success-color;
+                    }
+                }
+
+                // &_addmore,
+                // &_item {}
             }
         }
     }

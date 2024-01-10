@@ -162,7 +162,6 @@ const TMCreateTaskForm: React.FC<{
         </Form.Item>
       </Form>
       <div className="footeraction d-flex-row_center gap1">
-        <Button onClick={() => drawerOnClose()}>Cancel</Button>
         <Button
           disabled={!formData.title.length}
           type="primary"
@@ -170,6 +169,7 @@ const TMCreateTaskForm: React.FC<{
         >
           Create
         </Button>
+        <Button onClick={() => drawerOnClose()}>Cancel</Button>
       </div>
     </>
   );
