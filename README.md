@@ -1,4 +1,4 @@
-# TASK MANAGEMENT SYSTEM
+# Task Management System
 
 > By: Jehu Zubiri
 
