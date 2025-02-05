@@ -1,14 +1,17 @@
-# TASK MANAGEMENT SYSTEM by Jehu Zubiri
+# TASK MANAGEMENT SYSTEM
+
+> By: Jehu Zubiri
 
 > URL: https://taskmngtsystem-jehu.netlify.app
-> Last Update: Feb 5, 2025
 
-# INIT SETUP:
+> ---
+
+> Setup Guide:
 
 1. After cloning, run these on terminal
 2. npm i
 
-# MODULES:
+> Modules:
 
 1. react-beautiful-dnd
 2. react-icons
