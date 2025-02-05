@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 
 //HELPERS
 import { Person } from "@/helpers/Model";
@@ -9,7 +9,7 @@ import { IResolveParams, LoginSocialGoogle } from "reactjs-social-login";
 import { useNavigate } from "react-router-dom";
 
 //REDUX
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { signIn } from "../../../store/feature/accountSlice";
 
 const LoginGoogle: React.FC<{
@@ -26,7 +26,7 @@ const LoginGoogle: React.FC<{
   //states
   const GOOGLE_CLIENT_ID =
     "7241488333-6ukh6rn7ri7r9irkvvqda74bnovk83oi.apps.googleusercontent.com";
-
+  //client secret key: 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
   //functions
   const onLoginStart = useCallback(() => {
     // alert("login start");

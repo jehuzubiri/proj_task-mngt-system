@@ -1,12 +1,20 @@
-Task Management System by Jehu
+# TASK MANAGEMENT SYSTEM by Jehu Zubiri
 
-URL:
-https://taskmngtsystem-jehu.netlify.app
+> URL: https://taskmngtsystem-jehu.netlify.app
+> Last Update: Feb 5, 2025
 
-Local Setup Documentation:
-https://drive.google.com/file/d/1gqX82ZvFQYHjoppMzo3ypOkhiy4DsivK/view
+# INIT SETUP:
 
-Repositories:
-Github: https://github.com/jehuzubiri/typescript-taskms
-Gitlab: https://gitlab.com/jehuzubiri/typescript-taskms
-Bitbucket: https://bitbucket.org/jehuprojects/typescript-taskms/src/main/
+1. After cloning, run these on terminal
+2. npm i
+
+# MODULES:
+
+1. react-beautiful-dnd
+2. react-icons
+3. react-redux
+4. react-router-dom
+5. reactjs-social-login
+6. typescript
+7. antd
+8. sass
